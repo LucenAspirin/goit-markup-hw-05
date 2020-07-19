@@ -16,6 +16,7 @@ html {
   --logo-web-text-color: #2196f3;
   --logo-studio-text-color: #000000;
   --nav-link: #212121;
+  --icons-color: #afb1b8;
   --white-color: #ffffff;
   --duration: 250ms;
   --timing: cubic-bezier(0.4, 0, 0.2, 1);
@@ -84,15 +85,17 @@ img {
 }
 .site-nav .link {
   position: relative;
-  display: block;
+
   padding-top: 32px;
-  padding-bottom: 32px;
+  padding-bottom: 30px;
 
   color: var(--nav-link);
   font-weight: 500;
   font-size: 14px;
   line-height: 0.87px;
   letter-spacing: 0.02em;
+
+  transition: color var(--duration) var(--timing);
 }
 .link,
 .link-namber {
@@ -111,6 +114,8 @@ img {
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
+
+  transition: color var(--duration) var(--timing);
 }
 .auth-nav .item + .item {
   margin-left: 30px;
@@ -323,9 +328,14 @@ img {
 }
 
 /* сотрудники */
-.icon-social {
-  width: 44px;
-  height: 44px;
+.social-networks {
+  display: flex;
+  padding-left: 32px;
+  padding-right: 32px;
+
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 24px;
 }
 
 .networks {
@@ -335,15 +345,20 @@ img {
   border-radius: 50%;
   justify-content: center;
   align-items: center;
+
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  fill: var(--icons-color);
   transition: background-color var(--duration) var(--timing),
     fill var(--duration) var(--timing);
 }
-.icon-social:hover {
-  --color4: var(--accent-color);
-  --color3: var(--white-color);
+.networks:hover,
+.networks:focus {
+  background-color: var(--accent-color);
+  fill: var(--white-color);
 }
-.networks-list {
-  justify-content: space-evenly;
+.networks-list:not(:last-child) {
+  margin-right: 10px;
 }
 .team-list {
   box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
@@ -387,21 +402,11 @@ img {
   height: 702px;
   background-color: #f5f4fa;
 }
-.social-networks {
-  justify-content: center;
-  display: flex;
-  padding-top: 20px;
-  padding-bottom: 24px;
-}
 
 .section-employees {
   justify-content: center;
 }
-.team .social-networks .networks:hover,
-.social-networks .networks:focus {
-  color: var(--accent-color);
-  list-style: none;
-}
+
 .prof-text {
   margin-top: 0;
   margin-bottom: 0;
@@ -435,19 +440,16 @@ img {
   border: 1px solid #afb1b8;
   box-sizing: border-box;
   border-radius: 4px;
-}
-/* .customers.customer-list:hover,
-.customers.customer-list:focus {
-  border-color: var(--accent-color);
-} */
-.company:hover,
-.company:focus {
-  border-color: var(--accent-color);
+
+  fill: var(--icons-color);
+  transition: border-color var(--duration) var(--timing),
+    fill var(--duration) var(--timing);
 }
 
 .company:hover,
 .company:focus {
-  --color3: var(--accent-color);
+  border-color: var(--accent-color);
+  fill: var(--accent-color);
 }
 
 .slogan-img {
@@ -493,6 +495,14 @@ img {
 .networks-list-footer {
   border-radius: 50px;
   background-color: rgba(255, 255, 255, 0.1);
+}
+.footer-social {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.networks-footer {
+  fill: var(--white-color);
 }
 
 .networks-list-footer:hover,
@@ -613,8 +623,10 @@ img {
   display: inline-block;
   color: var(--main-text-color);
 }
+
 .portfolio-image {
   position: relative;
+  overflow: hidden;
 }
 .text-back {
   position: absolute;
